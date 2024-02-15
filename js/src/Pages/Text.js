@@ -9,7 +9,7 @@ export default function Translate() {
     const [languagesList, setLanguagesList] = useState([])
     const [detectLanguageKey, setdetectedLanguageKey] = useState('')
     const getLanguageSource = () => {
-        axios.post(`https://libretranslate.de/detect`, {
+        axios.post(`https://libretranslate.com/translate`, {
             q: inputText
         })
         .then((response) => {
@@ -26,7 +26,7 @@ export default function Translate() {
             source: detectLanguageKey,
             target: selectedLanguageKey
         }
-        axios.post(`https://libretranslate.de/translate`, data)
+        axios.post(`https://libretranslate.com/translate`, data)
         .then((response) => {
             setResultText(response.data.translatedText)
         })
